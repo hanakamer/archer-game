@@ -33,15 +33,7 @@ function fire(){
 }
 
 function collisionHandler (snowman, arrow) {
-
-    //  When a bullet hits an alien we kill them both
     arrow.kill();
     flash();
-
-    //  Increase the score
-
-
-    //  And create an explosion :)
-
 
 }

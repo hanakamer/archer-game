@@ -12,7 +12,8 @@ function playerCreate(){
   player.body.collideWorldBounds = true;
   player.animations.add('walk',[0, 1, 2, 3, 4, 5], 8, true);
   player.animations.add('shoot', [6, 7, 8], 8, true);
-  player.animations.add('down', [9], 8, true)
+  player.animations.add('down', [9], 8, true);
+  player.animations.add('jump', [0], 8, true);
 }
 
 function playerUpdate(){
@@ -32,8 +33,10 @@ function playerUpdate(){
     player.scale.y = 0.9;
 		player.body.velocity.x = 0 ;
 		player.animations.play('down');
-	}
-  else if(shootKey.isDown){
+	}else if (cursors.up.isDown){
+        player.animations.play('jump');
+        player.body.velocity.y = -350;
+  }else if(shootKey.isDown){
 		player.body.velocity.x = 0 ;
     player.animations.play('shoot');
     fire();
